@@ -1,57 +1,63 @@
 [gd_scene format=3 uid="uid://j6dx807lu4mf"]
 
 [ext_resource type="Script" uid="uid://bdihfh46gu7sd" path="res://scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://blq8qsjeww18w" path="res://assets/panel_brown_damaged_dark.png" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://basojehy3ijbp" path="res://assets/minimap_arrow_a.png" id="3_iywne"]
+[ext_resource type="Texture2D" uid="uid://da602nmxsq1g5" path="res://assets/panel_border_grey_detail.png" id="4_p57ef"]
+[ext_resource type="Texture2D" uid="uid://61nv8tui4ft2" path="res://assets/minimap_arrow_b.png" id="5_u5sy4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cj0n"]
-size = Vector2(40, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrxv"]
-size = Vector2(40, 40)
-
-[node name="Game" type="Node2D" unique_id=1724383540]
+[node name="Game" type="Node2D" unique_id=1724383540 node_paths=PackedStringArray("play_zone", "catch_zone", "player", "player_rect", "player_spawn_point")]
 script = ExtResource("1_uwrxv")
+play_zone = NodePath("PlayZone2")
+catch_zone = NodePath("CatchZone2")
+player = NodePath("Arrow")
+player_rect = NodePath("Arrow")
+player_spawn_point = NodePath("SpawnPoint")
+metadata/_edit_vertical_guides_ = [10.0]
 
 [node name="Background" type="ColorRect" parent="." unique_id=691533425]
-offset_right = 649.0
-offset_bottom = 1160.0
+offset_right = 480.0
+offset_bottom = 720.0
 color = Color(0.3529412, 0.7254902, 0.63529414, 1)
 
-[node name="PlayZone" type="ColorRect" parent="." unique_id=937804107]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 12.0
-offset_top = 234.0
-offset_right = 468.0
-offset_bottom = 274.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="PlayZone2" type="NinePatchRect" parent="." unique_id=639384253]
+texture_filter = 1
+offset_left = 4.0
+offset_top = 312.0
+offset_right = 944.0
+offset_bottom = 424.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yqjtg")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 48
+patch_margin_top = 48
+patch_margin_right = 48
+patch_margin_bottom = 48
 
-[node name="Player" type="StaticBody2D" parent="." unique_id=1204448863]
-position = Vector2(125, 234)
+[node name="MinimapArrowA" type="Sprite2D" parent="." unique_id=1834187712]
+visible = false
+texture_filter = 1
+position = Vector2(83, 180)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_iywne")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2119119609]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_8cj0n")
+[node name="CatchZone2" type="Sprite2D" parent="." unique_id=1517811644]
+texture_filter = 1
+position = Vector2(91, 340)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_p57ef")
 
-[node name="PlayerRect" type="ColorRect" parent="Player" unique_id=1340249493]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.9843137, 0.7764706, 0.5921569, 1)
+[node name="Arrow" type="Sprite2D" parent="." unique_id=156883373]
+visible = false
+texture_filter = 1
+position = Vector2(32, 340)
+scale = Vector2(1.3749994, 1.3749994)
+texture = ExtResource("5_u5sy4")
 
-[node name="CatchZone" type="Area2D" parent="." unique_id=1347207362]
-position = Vector2(200, 234)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchZone" unique_id=929477451]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_uwrxv")
-debug_color = Color(0.336931, 0.3164608, 0.7317132, 0.41960785)
-
-[node name="CatchZoneRect" type="ColorRect" parent="CatchZone" unique_id=636299052]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.8235294, 0.9254902, 0.6, 1)
+[node name="SpawnPoint" type="ColorRect" parent="." unique_id=99861001]
+visible = false
+offset_left = 445.322
+offset_top = 340.0
+offset_right = 453.322
+offset_bottom = 384.0
+pivot_offset = Vector2(4, 22)
