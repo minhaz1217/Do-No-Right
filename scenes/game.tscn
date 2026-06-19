@@ -2,13 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bdihfh46gu7sd" path="res://scenes/game.gd" id="1_uwrxv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrxv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cj0n"]
 size = Vector2(40, 40)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_uwrxv"]
-bounce = 0.31
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8cj0n"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrxv"]
 size = Vector2(40, 40)
 
 [node name="Game" type="Node2D" unique_id=1724383540]
@@ -34,21 +31,8 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CatchZone" type="Area2D" parent="." unique_id=1347207362]
-position = Vector2(71, 233)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchZone" unique_id=929477451]
-position = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_uwrxv")
-
-[node name="CatchZoneRect" type="ColorRect" parent="CatchZone" unique_id=636299052]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.8235294, 0.9254902, 0.6, 1)
-
 [node name="Player" type="StaticBody2D" parent="." unique_id=1204448863]
 position = Vector2(125, 234)
-physics_material_override = SubResource("PhysicsMaterial_uwrxv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2119119609]
 position = Vector2(20, 20)
@@ -59,6 +43,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.9843137, 0.7764706, 0.5921569, 1)
 
-[connection signal="area_entered" from="CatchZone" to="." method="_on_catch_zone_area_area_entered"]
-[connection signal="body_entered" from="CatchZone" to="." method="_on_catch_zone_area_body_entered"]
-[connection signal="body_shape_entered" from="CatchZone" to="." method="_on_catch_zone_area_body_shape_entered"]
+[node name="CatchZone" type="Area2D" parent="." unique_id=1347207362]
+position = Vector2(200, 234)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatchZone" unique_id=929477451]
+position = Vector2(20, 20)
+shape = SubResource("RectangleShape2D_uwrxv")
+debug_color = Color(0.336931, 0.3164608, 0.7317132, 0.41960785)
+
+[node name="CatchZoneRect" type="ColorRect" parent="CatchZone" unique_id=636299052]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.8235294, 0.9254902, 0.6, 1)
