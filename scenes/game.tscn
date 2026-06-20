@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://j6dx807lu4mf"]
+[gd_scene load_steps=7 format=3 uid="uid://j6dx807lu4mf"]
 
 [ext_resource type="Script" uid="uid://bdihfh46gu7sd" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://blq8qsjeww18w" path="res://assets/panel_brown_damaged_dark.png" id="2_yqjtg"]
@@ -8,7 +8,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_iywne"]
 
-[node name="Game" type="Node2D" unique_id=1724383540 node_paths=PackedStringArray("play_zone", "catch_zone", "player", "player_rect", "player_spawn_point", "score_label")]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("play_zone", "catch_zone", "player", "player_rect", "player_spawn_point", "score_label")]
 script = ExtResource("1_uwrxv")
 play_zone = NodePath("PlayZone2")
 catch_zone = NodePath("CatchZone2")
@@ -18,12 +18,12 @@ player_spawn_point = NodePath("SpawnPoint")
 score_label = NodePath("Score")
 metadata/_edit_vertical_guides_ = [10.0]
 
-[node name="Background" type="ColorRect" parent="." unique_id=691533425]
+[node name="Background" type="ColorRect" parent="."]
 offset_right = 480.0
 offset_bottom = 720.0
-color = Color(0.3529412, 0.7254902, 0.63529414, 1)
+color = Color(0.352941, 0.72549, 0.635294, 1)
 
-[node name="PlayZone2" type="NinePatchRect" parent="." unique_id=639384253]
+[node name="PlayZone2" type="NinePatchRect" parent="."]
 texture_filter = 1
 offset_left = 4.0
 offset_top = 312.0
@@ -37,28 +37,28 @@ patch_margin_top = 48
 patch_margin_right = 48
 patch_margin_bottom = 48
 
-[node name="MinimapArrowA" type="Sprite2D" parent="." unique_id=1834187712]
+[node name="MinimapArrowA" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 position = Vector2(83, 180)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_iywne")
 
-[node name="CatchZone2" type="Sprite2D" parent="." unique_id=1517811644]
+[node name="CatchZone2" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(79, 308)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_p57ef")
 centered = false
 
-[node name="Arrow" type="Sprite2D" parent="." unique_id=156883373]
+[node name="Arrow" type="Sprite2D" parent="."]
 visible = false
 texture_filter = 1
 position = Vector2(32, 340)
-scale = Vector2(1.3749994, 1.3749994)
+scale = Vector2(1.375, 1.375)
 texture = ExtResource("5_u5sy4")
 
-[node name="SpawnPoint" type="ColorRect" parent="." unique_id=99861001]
+[node name="SpawnPoint" type="ColorRect" parent="."]
 visible = false
 offset_left = 445.322
 offset_top = 340.0
@@ -66,14 +66,14 @@ offset_right = 453.322
 offset_bottom = 384.0
 pivot_offset = Vector2(4, 22)
 
-[node name="Score" type="Label" parent="." unique_id=2146696397]
+[node name="Score" type="Label" parent="."]
 offset_left = 204.0
 offset_top = 24.0
 offset_right = 256.0
 offset_bottom = 47.0
 text = "Score: 0"
 
-[node name="Debug" type="Label" parent="." unique_id=1835647474]
+[node name="Debug" type="Label" parent="."]
 visible = false
 offset_left = 187.0
 offset_top = 414.0
@@ -81,14 +81,14 @@ offset_right = 227.0
 offset_bottom = 437.0
 text = "Debug"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=825026822]
+[node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 offset_left = 15.0
 offset_top = 1.0
 offset_right = 16.0
 offset_bottom = 1001.0
 
-[node name="Helper" type="Label" parent="." unique_id=1653342669]
+[node name="Helper" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -100,7 +100,8 @@ offset_right = 392.0
 offset_bottom = 298.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press Space To Start Playing"
+text = "Do No Right
+Press Space To Start Playing"
 label_settings = SubResource("LabelSettings_iywne")
 horizontal_alignment = 1
 vertical_alignment = 1

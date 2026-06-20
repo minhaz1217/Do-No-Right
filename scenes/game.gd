@@ -93,6 +93,7 @@ func wrong_pressed():
 	var helper_text = [ "Are you sure you pressed the right button? 🙄", "The name is 'DO NO RIGHT', not 'DO THE OBVIOUS'" ]
 	$Helper.text = helper_text.pick_random()
 func increase_score():
+	$Helper.text = ""
 	score+= 10
 	score_label.text = "Score: " + str(score)
 	spawn_player()
