@@ -41,6 +41,7 @@ func _process(delta: float) -> void:
 		#player_direction *= -1
 	#player.global_position.x += player_speed * player_direction
 	handle_input()
+	game_over()
 		#if( player.position.x >= catch_zone.position.x && player.position.x <= catch_zone.position.x + catch_zone_size.x):
 			#print("In Range")
 func start_game():
