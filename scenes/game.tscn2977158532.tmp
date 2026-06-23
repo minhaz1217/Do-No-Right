@@ -14,7 +14,6 @@ play_zone = NodePath("PlayZone2")
 catch_zone = NodePath("CatchZone")
 player = NodePath("Arrow")
 player_spawn_point = NodePath("SpawnPoint")
-arrow = null
 score_label = NodePath("Score")
 
 [node name="Background" type="ColorRect" parent="." unique_id=167505079]

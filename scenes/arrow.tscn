@@ -2,8 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://61nv8tui4ft2" path="res://assets/minimap_arrow_b.png" id="1_umosx"]
 
-[node name="Arrow" type="Sprite2D" unique_id=2112539182]
-visible = false
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6of6o"]
+size = Vector2(32, 32)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=878846393]
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=2112539182]
 texture_filter = 1
-scale = Vector2(1.375, 1.375)
 texture = ExtResource("1_umosx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2034189085]
+shape = SubResource("RectangleShape2D_6of6o")

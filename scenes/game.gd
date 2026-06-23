@@ -1,11 +1,11 @@
 extends Node2D
 
 @export var play_zone: NinePatchRect
-@export var catch_zone: Sprite2D
-@export var player: Sprite2D  
+@export var catch_zone: Area2D
+@export var arrow_scene = preload("uid://cjf503agx10ho")
+@export var player: CharacterBody2D  
 @export var player_rect: Sprite2D
 @export var player_spawn_point : ColorRect
-@export var player_image = preload("uid://61nv8tui4ft2")
 @export var score_label: Label
 
 var speed : int = 200
@@ -100,8 +100,7 @@ func increase_score():
 	spawn_player()
 	
 func spawn_player():
-	var temp_player: Sprite2D = Sprite2D.new()
-	temp_player.texture = player_image
+	var temp_player = arrow_scene.instantiate();
 	temp_player.position = player_spawn_point.position
 	temp_player.scale = Vector2(1.375, 1.375)
 	temp_player.rotation_degrees = (90 * randi_range(1,4))
@@ -112,7 +111,8 @@ func spawn_player():
 
 func is_in_zone():
 	#print("Checking")
-	var catch_zone_size = 128 * catch_zone.scale.x
+	#var catch_zone_size = 128 * catch_zone.scale.x
+	var catch_zone_size = 128 * 1
 	var player_size_x = (Vector2(32 , 32) * player.scale.x).x
 	var player_position = player.position.x - (player_size_x /2)
 	if(player_position >= catch_zone.position.x && player_position <= catch_zone.position.x + catch_zone_size):
