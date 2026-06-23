@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cjf503agx10ho"]
+
+[ext_resource type="Texture2D" uid="uid://61nv8tui4ft2" path="res://assets/minimap_arrow_b.png" id="1_umosx"]
+
+[node name="Arrow" type="Sprite2D" unique_id=2112539182]
+visible = false
+texture_filter = 1
+scale = Vector2(1.375, 1.375)
+texture = ExtResource("1_umosx")

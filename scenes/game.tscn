@@ -6,6 +6,67 @@
 [ext_resource type="Texture2D" uid="uid://da602nmxsq1g5" path="res://assets/panel_border_grey_detail.png" id="4_p57ef"]
 [ext_resource type="Texture2D" uid="uid://61nv8tui4ft2" path="res://assets/minimap_arrow_b.png" id="5_u5sy4"]
 
+[sub_resource type="Animation" id="Animation_iywne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CatchZone2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatchZone2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(79, 314)]
+}
+
+[sub_resource type="Animation" id="Animation_p57ef"]
+resource_name = "new_animation"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CatchZone2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.4, 0.4), Vector2(0.5, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CatchZone2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(2, 2, 2),
+"update": 0,
+"values": [Vector2(79, 308), Vector2(79, 314), Vector2(79, 308)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u5sy4"]
+_data = {
+&"RESET": SubResource("Animation_iywne"),
+&"new_animation": SubResource("Animation_p57ef")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_iywne"]
 
 [node name="Game" type="Node2D" unique_id=180630587 node_paths=PackedStringArray("play_zone", "catch_zone", "player", "player_rect", "player_spawn_point", "score_label")]
@@ -16,7 +77,6 @@ player = NodePath("Arrow")
 player_rect = NodePath("Arrow")
 player_spawn_point = NodePath("SpawnPoint")
 score_label = NodePath("Score")
-metadata/_edit_vertical_guides_ = [10.0]
 
 [node name="Background" type="ColorRect" parent="." unique_id=167505079]
 offset_right = 480.0
@@ -46,10 +106,16 @@ texture = ExtResource("3_iywne")
 
 [node name="CatchZone2" type="Sprite2D" parent="." unique_id=2141126379]
 texture_filter = 1
-position = Vector2(79, 308)
+position = Vector2(79, 314)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_p57ef")
 centered = false
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="CatchZone2" unique_id=1285550644]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CatchZone2" unique_id=1920960411]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_u5sy4")
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=1466106085]
 visible = false
